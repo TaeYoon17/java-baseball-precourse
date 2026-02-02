@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Random;
 
 public class IntNumberGenerator implements INumberGenerator<List<Integer>> {
-	
+
 	@Override
-	public List<Integer> execute(Date date) {
+	public List<Integer> execute(Date date, Integer generateNumberCount) {
 		Random random = new Random(date.getTime());
 		List<Integer> numbers = new ArrayList<>();
-		while (numbers.size() < 3) {
+		while (numbers.size() < generateNumberCount) {
 			int number = random.nextInt(9) + 1;
 			if (numbers.contains(number))
 				continue;
