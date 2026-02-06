@@ -4,9 +4,11 @@ import java.util.List;
 
 import baseball.domain.number_generator.INumberGenerator;
 import baseball.domain.number_generator.IntNumberGenerator;
-import baseball.domain.strike_zone_calculator.BallCalculator;
-import baseball.domain.strike_zone_calculator.IScoreCalculator;
-import baseball.domain.strike_zone_calculator.StrikeCalculator;
+import baseball.domain.score_calculator.BallCalculator;
+import baseball.domain.score_calculator.IScoreCalculator;
+import baseball.domain.score_calculator.StrikeCalculator;
+import baseball.domain.strike_zone_calculator.IStrikeZoneCalculator;
+import baseball.domain.strike_zone_calculator.StrikeZoneCalculator;
 
 public class DIContainer {
 	public static DIContainer shared = new DIContainer();
@@ -27,6 +29,7 @@ public class DIContainer {
 
 	public static class Domain {
 		public INumberGenerator<List<Integer>> integerNumberGenerator;
+		public IStrikeZoneCalculator strikeZoneCalculator;
 		public IScoreCalculator strikeCalculator;
 		public IScoreCalculator ballCalculator;
 
@@ -34,6 +37,7 @@ public class DIContainer {
 			integerNumberGenerator = new IntNumberGenerator();
 			strikeCalculator = new StrikeCalculator();
 			ballCalculator = new BallCalculator(strikeCalculator);
+			strikeZoneCalculator = new StrikeZoneCalculator(this.strikeCalculator, this.ballCalculator);
 		}
 	}
 }

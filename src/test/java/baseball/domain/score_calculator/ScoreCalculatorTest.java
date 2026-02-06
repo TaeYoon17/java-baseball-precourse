@@ -10,10 +10,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import baseball.domain.strike_zone_calculator.BallCalculator;
-import baseball.domain.strike_zone_calculator.IScoreCalculator;
-import baseball.domain.strike_zone_calculator.StrikeCalculator;
-
 public class ScoreCalculatorTest {
 	IScoreCalculator strikeCalculator;
 	IScoreCalculator ballCalculator;

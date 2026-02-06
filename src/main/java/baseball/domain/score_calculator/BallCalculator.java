@@ -1,4 +1,4 @@
-package baseball.domain.strike_zone_calculator;
+package baseball.domain.score_calculator;
 
 import java.util.HashSet;
 import java.util.List;
