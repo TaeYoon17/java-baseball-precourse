@@ -13,8 +13,8 @@ import baseball.domain.strike_zone_calculator.StrikeZoneCalculator;
 public class DIContainer {
 	public static DIContainer shared = new DIContainer();
 
-	public Domain domain;
-	public Util util;
+	public final Domain domain;
+	public final Util util;
 
 	private DIContainer() {
 		this.util = new Util();
@@ -22,16 +22,18 @@ public class DIContainer {
 	}
 
 	public static class Util {
+		final public int generateNumber = 3;
+
 		Util() {
 
 		}
 	}
 
 	public static class Domain {
-		public INumberGenerator<List<Integer>> integerNumberGenerator;
-		public IStrikeZoneCalculator strikeZoneCalculator;
-		public IScoreCalculator strikeCalculator;
-		public IScoreCalculator ballCalculator;
+		final public INumberGenerator<List<Integer>> integerNumberGenerator;
+		final public IStrikeZoneCalculator strikeZoneCalculator;
+		final public IScoreCalculator strikeCalculator;
+		final public IScoreCalculator ballCalculator;
 
 		Domain(Util util) {
 			integerNumberGenerator = new IntNumberGenerator();

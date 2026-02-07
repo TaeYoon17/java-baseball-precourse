@@ -44,6 +44,7 @@ public class MainCoordinator implements Coordinator, PlayViewControllerDelegate,
 	private void showPlay() {
 		// PlayViewController에 필요한 의존성을 여기서 생성하고 주입합니다.
 		this.playViewController = new PlayViewController(
+			diContainer.util.generateNumber,
 			diContainer.domain.integerNumberGenerator,
 			diContainer.domain.strikeZoneCalculator
 		);
